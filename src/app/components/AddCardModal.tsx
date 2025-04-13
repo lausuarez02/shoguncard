@@ -13,10 +13,11 @@ export default function AddCardModal({ onAdd, onClose }: AddCardModalProps) {
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [chain, setChain] = useState<Chain>('Ethereum')
+  const [type, setType] = useState<'moonwell' | 'default'>('default')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    onAdd({ name, address, chain })
+    onAdd({ name, address, chain, type })
     onClose()
   }
 
@@ -77,6 +78,18 @@ export default function AddCardModal({ onAdd, onClose }: AddCardModalProps) {
               {chains.map((c) => (
                 <option key={c} value={c}>{c}</option>
               ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm text-gray-500 mb-1">Card Type</label>
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value as 'moonwell' | 'default')}
+              className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="default">Default</option>
+              <option value="moonwell">Moonwell</option>
             </select>
           </div>
           

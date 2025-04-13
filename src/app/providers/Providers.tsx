@@ -23,7 +23,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <WagmiConfig config={config}>
-        <RainbowKitProvider chains={[mainnet, polygon]}>
+        <RainbowKitProvider>
           {children}
         </RainbowKitProvider>
       </WagmiConfig>
