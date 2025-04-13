@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ShogunCard - AI-Powered Crypto Card Management
+
+ShogunCard is a modern web application that provides intelligent management of crypto-enabled cards, featuring AI-powered treasury management and seamless fund transfers. Built with Next.js and Tailwind CSS, it offers a clean, user-friendly interface for managing your crypto assets.
+
+## Project Overview
+
+ShogunCard is part of a larger ecosystem of decentralized finance (DeFi) tools and services. The project consists of several interconnected repositories:
+
+### Core Components
+
+1. **ShogunCard** (This Repository)
+   - Modern React + Next.js dashboard
+   - Real-time balance tracking
+   - Card management interface
+   - AI-powered fund allocation
+   - [View Live Demo](https://shoguncard.com)
+
+2. **Vault Web Interface** ([vault-web](https://github.com/tomi204/vault-web))
+   - Vault management dashboard
+   - Deposit interface
+   - Yield tracking
+   - Strategy visualization
+
+3. **Strategies Agent** ([strategies-agent-sonic](https://github.com/lausuarez02/strategies-agent-sonic/))
+   - Off-chain execution and automation
+   - DeFi strategy management
+   - Market analysis and pattern recognition
+   - Automated arbitrage execution
+   - Smart contract interaction
+
+4. **AI Strategy Engine** ([strategies-ai-sonic](https://github.com/lausuarez02/strategies-ai-sonic/))
+   - AI-powered strategy optimization
+   - Yield farming predictions
+   - Risk analysis and alerts
+   - Integration with Allora Network
+   - Dynamic strategy signals
+
+5. **Smart Contracts** ([strategies-contracts-sonic](https://github.com/lausuarez02/strategies-contracts-sonic/))
+   - On-chain strategy execution
+   - Vault management
+   - Yield optimization
+   - Security and access control
+
+## Features
+
+- **Card Management**
+  - Add and manage multiple crypto cards
+  - Real-time balance tracking
+  - Transaction history
+  - Card stacking visualization
+
+- **AI Treasury**
+  - Automated fund allocation
+  - Yield optimization
+  - Risk management
+  - Smart rebalancing
+
+- **Wallet Integration**
+  - Web3 wallet connection
+  - USDC top-up functionality
+  - Transaction monitoring
+  - Cross-chain support
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/shogun-card.git
+cd shogun-card
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Learn More
+## Development Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: Next.js, React, TypeScript
+- **Styling**: Tailwind CSS
+- **Animation**: Framer Motion
+- **Web3**: wagmi, viem
+- **Wallet**: RainbowKit
+- **State Management**: React Query
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Architecture
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The Shogun ecosystem is designed as a modular system where each component plays a specific role:
 
-## Deploy on Vercel
+1. **Web Interface** (This repo)
+   - User-facing dashboard
+   - Card management
+   - Transaction interface
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Backend Services**
+   - Strategy execution
+   - AI predictions
+   - Risk management
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Smart Contracts**
+   - On-chain operations
+   - Fund management
+   - Security protocols
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Related Repositories
+
+- [Vault Web Interface](https://github.com/tomi204/vault-web)
+- [Strategies Agent](https://github.com/lausuarez02/strategies-agent-sonic/)
+- [AI Strategy Engine](https://github.com/lausuarez02/strategies-ai-sonic/)
+- [Smart Contracts](https://github.com/lausuarez02/strategies-contracts-sonic/)
