@@ -1,36 +1,20 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRightIcon, ArrowLeftIcon, SparklesIcon, WalletIcon, CreditCardIcon, ChartBarIcon, DocumentIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
-
-// Animation variants for sections
-const fadeInUp = {
-  initial: { y: 20, opacity: 0 },
-  animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.5 }
-}
-
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-}
+import { ArrowRightIcon, ArrowLeftIcon, SparklesIcon, WalletIcon, CreditCardIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 
 const slides = [
   {
     id: 'hero',
     content: (
       <div className="text-center space-y-8">
-        <h1 className="text-5xl md:text-7xl font-bold text-white">
+        <h1 className="text-3xl font-bold text-black">
           ShogunCard
-          <span className="block text-2xl md:text-3xl mt-4 text-blue-400 font-light">
+          <span className="block text-xl mt-2 text-gray-500 font-normal">
             AI-Powered Treasury for Your Crypto Cards
           </span>
         </h1>
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <p className="text-gray-600">
           Earn yield. Stay liquid. Spend instantly.
         </p>
       </div>
@@ -39,22 +23,22 @@ const slides = [
   {
     id: 'problem',
     content: (
-      <div className="space-y-12">
-        <h2 className="text-4xl font-bold text-white text-center">
+      <div className="space-y-8">
+        <h2 className="text-3xl font-bold text-black text-center">
           Managing crypto card liquidity sucks.
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <CreditCardIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-300 text-center">Manual fund transfers</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <CreditCardIcon className="h-6 w-6 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-500 text-center text-sm">Manual fund transfers</p>
           </div>
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <WalletIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-300 text-center">Idle funds don't earn</p>
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <WalletIcon className="h-6 w-6 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-500 text-center text-sm">Idle funds don't earn</p>
           </div>
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <ChartBarIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-            <p className="text-gray-300 text-center">Poor user experience</p>
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <ChartBarIcon className="h-6 w-6 text-gray-400 mx-auto mb-4" />
+            <p className="text-gray-500 text-center text-sm">Poor user experience</p>
           </div>
         </div>
       </div>
@@ -64,7 +48,7 @@ const slides = [
     id: 'solution',
     content: (
       <div className="space-y-8">
-        <h2 className="text-4xl font-bold text-white text-center mb-12">Enter ShogunCard</h2>
+        <h2 className="text-3xl font-bold text-black text-center">Enter ShogunCard</h2>
         <div className="aspect-[1.586/1] max-w-lg mx-auto flex flex-col justify-between p-6 rounded-2xl shadow-xl relative overflow-hidden bg-[#1E3A8A]">
           <div className="absolute inset-0">
             <div className="absolute w-96 h-96 bg-blue-400/20 rounded-full -top-24 -right-24" />
@@ -93,23 +77,23 @@ const slides = [
   {
     id: 'how-it-works',
     content: (
-      <div className="space-y-12">
-        <h2 className="text-4xl font-bold text-white text-center">How It Works</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <div className="text-5xl font-bold text-blue-500 mb-4">01</div>
-            <h3 className="text-xl font-semibold text-white mb-2">Add Your Cards</h3>
-            <p className="text-gray-300">Connect any crypto card with its wallet address</p>
+      <div className="space-y-8">
+        <h2 className="text-3xl font-bold text-black text-center">How It Works</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <p className="text-2xl font-bold text-gray-900 mb-4">01</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Add Your Cards</h3>
+            <p className="text-gray-500 text-sm">Connect any crypto card with its wallet address</p>
           </div>
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <div className="text-5xl font-bold text-purple-500 mb-4">02</div>
-            <h3 className="text-xl font-semibold text-white mb-2">Deposit Crypto</h3>
-            <p className="text-gray-300">Fund your vault once and earn yield</p>
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <p className="text-2xl font-bold text-gray-900 mb-4">02</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Deposit Crypto</h3>
+            <p className="text-gray-500 text-sm">Fund your vault once and earn yield</p>
           </div>
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <div className="text-5xl font-bold text-green-500 mb-4">03</div>
-            <h3 className="text-xl font-semibold text-white mb-2">Let AI Handle It</h3>
-            <p className="text-gray-300">Smart treasury manages your liquidity</p>
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <p className="text-2xl font-bold text-gray-900 mb-4">03</p>
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Let AI Handle It</h3>
+            <p className="text-gray-500 text-sm">Smart treasury manages your liquidity</p>
           </div>
         </div>
       </div>
@@ -118,20 +102,20 @@ const slides = [
   {
     id: 'ai-treasury',
     content: (
-      <div className="space-y-12">
-        <h2 className="text-4xl font-bold text-white text-center mb-8">
+      <div className="space-y-8">
+        <h2 className="text-3xl font-bold text-black text-center">
           An AI That Understands You
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <h3 className="text-xl font-semibold text-white mb-4">Learning Engine</h3>
-            <p className="text-gray-300">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Learning Engine</h3>
+            <p className="text-gray-500 text-sm">
               Analyzes spending patterns to predict liquidity needs
             </p>
           </div>
-          <div className="p-6 bg-white/5 rounded-2xl backdrop-blur">
-            <h3 className="text-xl font-semibold text-white mb-4">Yield Optimizer</h3>
-            <p className="text-gray-300">
+          <div className="p-6 bg-white rounded-2xl border border-gray-100">
+            <h3 className="text-lg font-medium text-gray-900 mb-2">Yield Optimizer</h3>
+            <p className="text-gray-500 text-sm">
               Maximizes returns on idle funds while maintaining liquidity
             </p>
           </div>
@@ -149,31 +133,43 @@ export default function Presentation() {
   }
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+    if (currentSlide > 0) {
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+    }
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-blue-900 flex items-center justify-center relative">
-      {/* Animated background */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-3xl -top-48 -right-48 animate-pulse" />
-        <div className="absolute w-[500px] h-[500px] bg-purple-500/20 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse delay-1000" />
-      </div>
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowRight') {
+        nextSlide()
+      } else if (event.key === 'ArrowLeft') {
+        prevSlide()
+      }
+    }
 
+    window.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center relative">
       {/* Navigation buttons */}
       <button
         onClick={prevSlide}
-        className="fixed left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur z-20"
+        className="fixed left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white border border-gray-200 hover:border-gray-300 z-20"
         disabled={currentSlide === 0}
       >
-        <ArrowLeftIcon className="h-6 w-6 text-white" />
+        <ArrowLeftIcon className="h-6 w-6 text-gray-400" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="fixed right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur z-20"
+        className="fixed right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white border border-gray-200 hover:border-gray-300 z-20"
       >
-        <ArrowRightIcon className="h-6 w-6 text-white" />
+        <ArrowRightIcon className="h-6 w-6 text-gray-400" />
       </button>
 
       {/* Slide content */}
@@ -181,9 +177,9 @@ export default function Presentation() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
             className="max-w-4xl mx-auto"
           >
@@ -199,43 +195,11 @@ export default function Presentation() {
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`w-2 h-2 rounded-full transition-colors ${
-              index === currentSlide ? 'bg-white' : 'bg-white/30'
+              index === currentSlide ? 'bg-black' : 'bg-gray-200'
             }`}
           />
         ))}
       </div>
-
-      {/* Final CTA */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={stagger}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <motion.h2 
-              variants={fadeInUp}
-              className="text-4xl font-bold text-white mb-8"
-            >
-              Ready to try ShogunCard?
-            </motion.h2>
-
-            <motion.div
-              variants={fadeInUp}
-              className="flex justify-center gap-4"
-            >
-              <Link 
-                href="/demo"
-                className="px-8 py-4 bg-blue-500 text-white rounded-xl font-medium hover:bg-blue-600 transition-colors flex items-center gap-2"
-              >
-                Try ShogunCard <ArrowRightIcon className="h-5 w-5" />
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   )
 } 
